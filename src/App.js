@@ -1,16 +1,19 @@
-import logo from './logo.svg';
 import './App.css';
-import Header from './Header';
-import MainComponent from './MainContent';
-import Footer from './Footer';
+import React, { useState } from 'react';
+import Header from './components/Header';
+import MainContent from './components/MainContent';
+import MoviesList from './components/MoviesList';
+import Footer from './components/Footer';
 
 
 
 function App() {
+  const [selectedGenre, setSelectedGenre] = useState(null);
   return (
     <div>
       <Header />
-      <MainComponent />
+      <MainContent onSelectGenre={setSelectedGenre} />
+      <MoviesList selectedGenre={selectedGenre} />
       <Footer />
     </div>
     
