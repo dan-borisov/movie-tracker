@@ -1,10 +1,22 @@
 import React from 'react';
+import { Navbar, Container, Nav } from 'react-bootstrap';
 
 function Header() {
     return (
-        <header>
-            <h1>I am H1 Header</h1>
-        </header>
+    <Navbar>
+        <Container>
+          <Navbar.Brand href="#home">
+            <img
+              alt=""
+              src="logo.jpg"
+              width="200"
+              height="75"
+              className="d-inline-block align-top"
+            />
+            <span>MovieTracker</span>
+          </Navbar.Brand>
+        </Container>
+    </Navbar>
     );
 }
 

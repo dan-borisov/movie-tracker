@@ -1,11 +1,16 @@
 import React from 'react';
 
-function MainComponent() {
+function MainContent() {
+    const paragraphStyle = {
+        marginBottom: '500px',
+        marginTop: '500px',
+    };
+
     return (
         <main>
-            <p>MainContent Paragraph</p>
+            <p style={paragraphStyle}>MainContent Paragraph</p>
         </main>
     );
 }
 
-export default MainComponent;
+export default MainContent;

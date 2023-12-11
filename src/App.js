@@ -5,6 +5,7 @@ import MainComponent from './MainContent';
 import Footer from './Footer';
 
 
+
 function App() {
   return (
     <div>
@@ -12,6 +13,8 @@ function App() {
       <MainComponent />
       <Footer />
     </div>
+    
+
   );
 }
 
