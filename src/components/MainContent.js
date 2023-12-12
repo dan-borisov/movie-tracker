@@ -24,15 +24,17 @@ function MainContent({ onSelectGenre }) {
                         <p>Explore your favourite movies and TV Shows</p>
                         <div className="hero-buttons">
                             <button type="button" href="#" className="btn btn-warning m-3 btn-lg">Random Movie</button>
-                            <button type="button" href="#" className="btn btn-outline-secondary m-3 btn-lg">Account</button>
+                            <button type="button" href="#" className="btn btn-outline-secondary m-3 btn-lg">Sigh Up</button>
                         </div>
                     </div>
                 </div>
+                <div className="container mt-3">
                 {genres.map((genre) => (
-                    <button key={genre.id} onClick={() => handleGenreClick(genre.id)}>
+                    <button className="btn btn-outline-warning m-2" key={genre.id} onClick={() => handleGenreClick(genre.id)}>
                         {genre.name}
                     </button>
                 ))}
+                </div>
             </div>
         </main>
     );

@@ -3,3 +3,6 @@ a.navbar-brand {
     font-weight: bold;
     font-size: 2rem;
 }
+a.navbar-brand:hover {
+    color:#f9c731;
+}

@@ -1,6 +1,11 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import { TMDB_API_BASE_URL, TMDB_API_KEY } from '../config.js';
 import genresData from '../genres.json';
+
+function slugify(title) {
+  return title.toLowerCase().replace(/[^a-zA-Z ]/g, '').replace(/\s+/g, '-');
+}
 
 function MoviesList({ selectedGenre }) {
   const [movies, setMovies] = useState([]);
@@ -30,14 +35,15 @@ function MoviesList({ selectedGenre }) {
   
   return (
     <div>
-      <h2>{genreObject ? genreObject.name : 'Popular'}</h2>
-        <div className="container">
+      
+        <div className="container mt-3">
+          <h2 className='mb-2'>{genreObject ? 'Category: ' + genreObject.name : 'Popular'}</h2>
           <div className="row gy-4">
           {movies.map((movie) => (
                 <div className="col-6 col-md-4 col-lg-2">
-                  <a href="#">
+                  <Link to={`/movie/${movie.id}/${slugify(movie.title)}`}>
                     <img className="movieCard img-fluid rounded" src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`} alt={movie.title} />
-                  </a>
+                  </Link>
                 </div>
        
            ))}   
