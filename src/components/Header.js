@@ -1,22 +1,32 @@
-import React from 'react';
-import { Navbar, Container, Nav } from 'react-bootstrap';
+import React, { useState, useEffect } from 'react';
+import '../styles/Header.css';
+
 
 function Header() {
+  const [backgroundColor, setBackgroundColor] = useState();
+
+  useEffect(() => {
+    const handleScroll = () => {
+      
+        if (window.scrollY > 500) {
+          setBackgroundColor('#060D17');
+        } else {
+          setBackgroundColor('');
+        }
+      
+    };
+    window.addEventListener('scroll', handleScroll);
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    }
+  }, []);
     return (
-    <Navbar>
-        <Container>
-          <Navbar.Brand href="#home">
-            <img
-              alt=""
-              src="logo.jpg"
-              width="200"
-              height="75"
-              className="d-inline-block align-top"
-            />
-            <span>MovieTracker</span>
-          </Navbar.Brand>
-        </Container>
-    </Navbar>
+      <nav class="navbar fixed-top navbar-light" style={{ backgroundColor, transition: 'background-color 0.4s ease' }}>
+        <div class="container">
+          <a class="navbar-brand" href="/">MovieTracker</a>
+        </div>
+      </nav>
     );
 }
 
