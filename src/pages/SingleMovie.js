@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-import SimilarMovies from './SimilarMovies';
+import SimilarMovies from '../components/SimilarMovies';
 import { TMDB_API_BASE_URL, TMDB_API_KEY, TMDB_API_IMAGE_URL } from '../config';
 import '../styles/SingleMovie.css';
 

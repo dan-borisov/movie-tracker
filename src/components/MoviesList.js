@@ -3,9 +3,7 @@ import { Link } from 'react-router-dom';
 import { TMDB_API_BASE_URL, TMDB_API_KEY } from '../config.js';
 import genresData from '../genres.json';
 
-function slugify(title) {
-  return title.toLowerCase().replace(/[^a-zA-Z ]/g, '').replace(/\s+/g, '-');
-}
+
 
 function MoviesList({ selectedGenre }) {
   const [movies, setMovies] = useState([]);
@@ -33,6 +31,10 @@ function MoviesList({ selectedGenre }) {
   
   const genreObject = genresData.genres.find(genre => genre.id === selectedGenre);
   
+  function slugify(title) {
+    return title.toLowerCase().replace(/[^a-zA-Z ]/g, '').replace(/\s+/g, '-');
+  }
+
   return (
     <div>
       
