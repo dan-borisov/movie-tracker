@@ -3,6 +3,7 @@ import genresData from '../genres.json';
 import '../styles/MainContent.css';
 
 
+
 function MainContent({ onSelectGenre }) {
     const [genres, setGenres] = useState([]);
 
