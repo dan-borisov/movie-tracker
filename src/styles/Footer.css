@@ -1,0 +1,26 @@
+.footer-heading {
+    font-weight: bold;
+}
+
+.footer-slogan {
+    color: #6A7C8F;
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+h4 {
+    color: #6A7C8F;
+}
+ul {
+    list-style-type: none;
+    padding: 0px;
+    margin: 0px;
+}
+li a {
+    color: #6A7C8F;
+    text-decoration: none;
+}
+
+li a:hover {
+    color: #788695;
+    text-decoration: none;
+}
