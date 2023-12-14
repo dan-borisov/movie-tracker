@@ -12,10 +12,10 @@ function MoviesList({ selectedGenre }) {
 
     const fetchMovies = async () => {
       try {
-        let endpoint = `${TMDB_API_BASE_URL}/movie/popular?api_key=${TMDB_API_KEY}`;
+        let endpoint = `${TMDB_API_BASE_URL}/movie/popular?api_key=${TMDB_API_KEY}&include_adult=false`;
 
         if (selectedGenre) {
-          endpoint = `${TMDB_API_BASE_URL}/discover/movie?api_key=${TMDB_API_KEY}&with_genres=${selectedGenre}`;
+          endpoint = `${TMDB_API_BASE_URL}/discover/movie?api_key=${TMDB_API_KEY}&with_genres=${selectedGenre}&include_adult=false`;
         }
 
         const response = await fetch(endpoint);
@@ -36,8 +36,7 @@ function MoviesList({ selectedGenre }) {
   }
 
   return (
-    <div>
-      
+    <div>    
         <div className="container mt-3">
           <h2 className='mb-2'>{genreObject ? 'Category: ' + genreObject.name : 'Popular'}</h2>
           <div className="row gy-4">
@@ -46,11 +45,9 @@ function MoviesList({ selectedGenre }) {
                   <Link to={`/movie/${movie.id}/${slugify(movie.title)}`}>
                     <img className="movieCard img-fluid rounded" src={`https://image.tmdb.org/t/p/w342${movie.poster_path}`} alt={movie.title} />
                   </Link>
-                </div>
-       
+                </div>     
            ))}   
-
-          </div>
+         </div>
         </div>
 
     </div>

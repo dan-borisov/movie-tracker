@@ -13,7 +13,7 @@ function SimilarMovies({ movieId }) {
     useEffect(() => {
       const fetchMovies = async () => {
         try {
-          let endpoint = `${TMDB_API_BASE_URL}/movie/${movieId}/similar?api_key=${TMDB_API_KEY}`;
+          let endpoint = `${TMDB_API_BASE_URL}/movie/${movieId}/similar?api_key=${TMDB_API_KEY}&include_adult=false`;
           const response = await fetch(endpoint);
           const data = await response.json();
           setMovies(data.results);

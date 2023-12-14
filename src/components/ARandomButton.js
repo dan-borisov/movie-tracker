@@ -13,7 +13,7 @@ function ARandomButton() {
                 const randomPage = Math.floor(Math.random() * 500) + 1;
                 const randomMovieIndex = Math.floor(Math.random() * 20);
 
-                const endpoint = `${TMDB_API_BASE_URL}/discover/movie?api_key=${TMDB_API_KEY}&page=${randomPage}`;
+                const endpoint = `${TMDB_API_BASE_URL}/discover/movie?api_key=${TMDB_API_KEY}&page=${randomPage}&include_adult=false`;
                 const response = await fetch(endpoint);
                 const data = await response.json();
                 setMovie(data.results[randomMovieIndex]);

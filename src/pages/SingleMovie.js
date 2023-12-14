@@ -13,7 +13,7 @@ function SingleMovie() {
   useEffect(() => {
     const fetchMovieDetails = async () => {
       try {
-        const endpoint = `${TMDB_API_BASE_URL}/movie/${id}?api_key=${TMDB_API_KEY}`;
+        const endpoint = `${TMDB_API_BASE_URL}/movie/${id}?api_key=${TMDB_API_KEY}&include_adult=false`;
         const response = await fetch(endpoint);
         const data = await response.json();
         setMovie(data);
@@ -57,10 +57,14 @@ function SingleMovie() {
     ? `https://image.tmdb.org/t/p/w342${movie.poster_path}`
     : process.env.PUBLIC_URL + '/poster-placeholder.png';
 
+  const backdropPath = movie.backdrop_path
+    ? (TMDB_API_IMAGE_URL + movie.backdrop_path)
+    : process.env.PUBLIC_URL + '/movie-tracker-hero.jpg';
+
   return (
     <div>
         <div className="container-flex backdrop-container">
-            <img className='movie-backdrop' src={TMDB_API_IMAGE_URL + movie.backdrop_path} alt={movie.title} />
+            <img className='movie-backdrop' src={backdropPath} alt={movie.title} />
         </div>
         <div className="movie-box p-3">
             <div className="container">
