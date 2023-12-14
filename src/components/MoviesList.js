@@ -42,7 +42,7 @@ function MoviesList({ selectedGenre }) {
           <h2 className='mb-2'>{genreObject ? 'Category: ' + genreObject.name : 'Popular'}</h2>
           <div className="row gy-4">
           {movies.map((movie) => (
-                <div className="col-6 col-md-4 col-lg-2">
+                <div key={movie.id} className="col-6 col-md-4 col-lg-2">
                   <Link to={`/movie/${movie.id}/${slugify(movie.title)}`}>
                     <img className="movieCard img-fluid rounded" src={`https://image.tmdb.org/t/p/w342${movie.poster_path}`} alt={movie.title} />
                   </Link>
