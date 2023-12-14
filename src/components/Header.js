@@ -26,7 +26,7 @@ function Header() {
           setBackgroundColor(''); 
         }
 
-        setShowRandomButton((!isHomePage) || isHomePage && isScrolledPast500);
+        setShowRandomButton((!isHomePage) || (isHomePage && isScrolledPast500));
     };
     
     window.addEventListener('scroll', handleScroll);

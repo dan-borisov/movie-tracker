@@ -11,6 +11,7 @@ function SingleMovie() {
   const [ageRating, setAgeRating] = useState(null);
 
   useEffect(() => {
+    window.scrollTo(0, 0);
     const fetchMovieDetails = async () => {
       try {
         const endpoint = `${TMDB_API_BASE_URL}/movie/${id}?api_key=${TMDB_API_KEY}&include_adult=false`;

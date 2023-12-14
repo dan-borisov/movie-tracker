@@ -6,6 +6,7 @@ import { TMDB_API_BASE_URL, TMDB_API_KEY } from '../config';
 
 function ARandomButton() {
     const [movie, setMovie ] = useState([]);
+    const [randomButtonClicked, setRandomButtonClicked] = useState(true);
     
    useEffect(() => {
         const fetchRandomMovie = async () => {
@@ -17,22 +18,31 @@ function ARandomButton() {
                 const response = await fetch(endpoint);
                 const data = await response.json();
                 setMovie(data.results[randomMovieIndex]);
+                setRandomButtonClicked(false);
             } catch (error) {
                 console.error('Error fetching from TMDB', (error));
             }
         }
-        fetchRandomMovie();
-   }, []);
+        
+        if (randomButtonClicked) {
+            fetchRandomMovie();
+        }
+   }, [randomButtonClicked]);
 
    function slugify(title) {
     if(!title) {
         return '';
     }
     return title.toLowerCase().replace(/[^a-zA-Z0-9 ]/g, '').replace(/\s+/g, '-');
-  }
+    }
+
+    const handleClick = () => {
+        setRandomButtonClicked(true);
+    }
+
     return (
         <Link to={`/movie/${movie.id}/${slugify(movie.title)}`} >
-            <button className='btn btn-lg btn-warning'>Random Movie</button>
+            <button onClick={handleClick} className='btn btn-lg btn-warning'>Random Movie</button>
         </Link>
     )
 };
