@@ -32,7 +32,7 @@ function MoviesList({ selectedGenre }) {
   const genreObject = genresData.genres.find(genre => genre.id === selectedGenre);
   
   function slugify(title) {
-    return title.toLowerCase().replace(/[^a-zA-Z ]/g, '').replace(/\s+/g, '-');
+    return title.toLowerCase().replace(/[^a-zA-Z0-9 ]/g, '').replace(/\s+/g, '-');
   }
 
   return (
