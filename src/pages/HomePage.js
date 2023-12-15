@@ -26,7 +26,6 @@ function HomePage() {
                     <p>Explore your favourite movies and TV Shows</p>
                     <div className="hero-buttons">
                         <ARandomButton />
-                        <button type="button" href="#" className="btn btn-outline-secondary m-3 btn-lg">Sigh Up</button>
                     </div>
                 </div>
             </div>

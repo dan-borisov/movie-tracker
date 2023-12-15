@@ -73,6 +73,19 @@ function Footer() {
                     </div>
                 </div>
             </div>
+            <div className="container mb-4 border-top border-secondary">
+                <div className="row my-2">                  
+                    <div className="col text-end">                        
+                        <span className='tmdb-credit'>
+                            Data Provided by
+                        
+                        <a href="https://www.themoviedb.org/">
+                            <img className="tmdb-logo ms-2" src="https://www.themoviedb.org/assets/2/v4/logos/v2/blue_long_2-9665a76b1ae401a510ec1e0ca40ddcb3b0cfe45f1d51b77a308fea0845885648.svg" alt="TMDB logo" />
+                        </a>
+                        </span>
+                    </div>
+                </div>
+            </div>
         </footer>
     );
 }

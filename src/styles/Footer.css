@@ -24,3 +24,11 @@ li a:hover {
     color: #788695;
     text-decoration: none;
 }
+
+.tmdb-logo {
+    max-height: 10px;
+}
+
+.tmdb-credit {
+    color: #6A7C8F;
+}
