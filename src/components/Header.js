@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import '../styles/Header.css';
 import ARandomButton from './ARandomButton';
-import { useLocation } from 'react-router-dom';
+import { useLocation, Link } from 'react-router-dom';
 
 
 function Header() {
@@ -40,6 +40,12 @@ function Header() {
       <nav class="navbar fixed-top navbar-light" style={{ backgroundColor, transition: 'background-color 0.4s ease' }}>
         <div class="container">
           <a class="navbar-brand" href="/">MovieTracker</a>
+          <Link to={'/movies'}>
+            <a href="/">Movies</a>
+          </Link>
+          <Link to='/tv-shows'>
+            <a href="/">TV Shows</a>
+          </Link>
           { showRandomButton && <ARandomButton /> }
         </div>
       </nav>
