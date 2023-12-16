@@ -7,13 +7,14 @@ function slugify(title) {
 }
 
 
-function SimilarMovies({ movieId }) {
+function Similar({ id, type }) {
     const [movies, setMovies] = useState([]);
-  
+
+    
     useEffect(() => {
       const fetchMovies = async () => {
         try {
-          let endpoint = `${TMDB_API_BASE_URL}/movie/${movieId}/similar?api_key=${TMDB_API_KEY}&include_adult=false`;
+          let endpoint = `${TMDB_API_BASE_URL}/${type}/${id}/similar?api_key=${TMDB_API_KEY}&include_adult=false`;
           const response = await fetch(endpoint);
           const data = await response.json();
           setMovies(data.results);
@@ -23,7 +24,7 @@ function SimilarMovies({ movieId }) {
       };
   
       fetchMovies();
-    }, [movieId]);
+    }, [id, type]);
   
     return (
       <div>
@@ -35,10 +36,12 @@ function SimilarMovies({ movieId }) {
               const posterPath = movie.poster_path
                 ? `https://image.tmdb.org/t/p/w342${movie.poster_path}`
                 : process.env.PUBLIC_URL + '/poster-placeholder.png';
-  
+              
+              const slug = (type === 'tv' ? movie.name : movie.title)
+              const dynoType = (type === 'tv' ? 'tv-show' : 'movie')
               return (
                 <div key={movie.id} className="col-6 col-md-4 col-lg-2">
-                  <Link to={`/movie/${movie.id}/${slugify(movie.title)}`}>
+                  <Link to={`/${dynoType}/${movie.id}/${slugify(slug)}`}>
                     <img className="movieCard img-fluid rounded" src={posterPath} alt={movie.title} />
                   </Link>
                 </div>
@@ -50,5 +53,5 @@ function SimilarMovies({ movieId }) {
     );
   }
   
-  export default SimilarMovies;
+  export default Similar;
   

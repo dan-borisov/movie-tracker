@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-import SimilarMovies from '../components/SimilarMovies';
+import Similar from '../components/Similar';
 import { TMDB_API_BASE_URL, TMDB_API_KEY, TMDB_API_IMAGE_URL } from '../config';
 import '../styles/SingleMovie.css';
 
@@ -51,7 +51,7 @@ function SingleMovie() {
     return <p>Loading...</p>;
   }
 
-  
+
   const posterPath = show.poster_path 
     ? `https://image.tmdb.org/t/p/w342${show.poster_path}`
     : process.env.PUBLIC_URL + '/poster-placeholder.png';
@@ -65,6 +65,8 @@ function SingleMovie() {
     if (show.first_air_date && show.last_air_date) {
         if(show.in_production) {
             return `${show.first_air_date.slice(0, 4)} - present`
+        } else if (show.first_air_date.slice(0, 4) === show.last_air_date.slice(0, 4)) {
+          return show.first_air_date.slice(0, 4)
         }
         return `${show.first_air_date.slice(0, 4)} - ${show.last_air_date.slice(0, 4)}`
     }
@@ -114,7 +116,7 @@ function SingleMovie() {
             </div>
         </div>
         <div className="container">
-          <SimilarMovies movieId={id}/>                  
+          <Similar id={id} type={'tv'}/>                  
         </div>
     </div>
   );
