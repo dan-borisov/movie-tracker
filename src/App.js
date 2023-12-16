@@ -8,6 +8,7 @@ import SingleMovie from './pages/SingleMovie';
 import SingleShow from './pages/SingleShow'
 import TvShows from './pages/TvShows'
 import Movies from './pages/Movies'
+import NotFound from './pages/NotFound';
 
 
 function App() {
@@ -25,6 +26,7 @@ function App() {
           <Route path="/tv-show/:id/:title" element={<SingleShow />} />
           <Route path="/movies" exact element={<Movies />}/>
           <Route path="/tv-shows" exact element={<TvShows />}/>
+          <Route path="*" element={<NotFound />} />
         </Routes>
         <Footer />
     </BrowserRouter>
