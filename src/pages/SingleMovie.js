@@ -7,14 +7,18 @@ import '../styles/SingleMovie.css';
 
 function SingleMovie() {
   const { id } = useParams();
+  const { type } = useParams();
   const [movie, setMovie] = useState(null);
   const [ageRating, setAgeRating] = useState(null);
+
+  console.log(id)
+  console.log(type)
 
   useEffect(() => {
     window.scrollTo(0, 0);
     const fetchMovieDetails = async () => {
       try {
-        const endpoint = `${TMDB_API_BASE_URL}/movie/${id}?api_key=${TMDB_API_KEY}&include_adult=false`;
+        const endpoint = `${TMDB_API_BASE_URL}/${type}/${id}?api_key=${TMDB_API_KEY}&include_adult=false`;
         const response = await fetch(endpoint);
         const data = await response.json();
         setMovie(data);
@@ -25,12 +29,12 @@ function SingleMovie() {
     };
 
     fetchMovieDetails();
-  }, [id]);
+  }, [id, type]);
 
   useEffect(() => {
     const fetchAgeRating = async () => {
       try {
-        const endpoint = `${TMDB_API_BASE_URL}/movie/${id}/release_dates?api_key=${TMDB_API_KEY}`;
+        const endpoint = `${TMDB_API_BASE_URL}/${type}/${id}/release_dates?api_key=${TMDB_API_KEY}`;
         const response = await fetch(endpoint);
         const data = await response.json();
         const releaseDates = data.results.find(item => item.iso_3166_1 === "US");
@@ -44,7 +48,7 @@ function SingleMovie() {
     };
 
     fetchAgeRating();
-  }, [id]);
+  }, [id, type]);
 
   if (!movie) {
     return <p>Loading...</p>;

@@ -1,5 +1,5 @@
 .hero-container {
-    height: 80vh;
+    height: 60vh;
     overflow: hidden;
     padding: 0px;
     position: relative;
@@ -19,7 +19,7 @@
 
 .hero-content {
     position: absolute;
-    top: 50%;
+    top: 40%;
     left: 50%;
     transform: translate(-50%, -50%);
     text-align: center;
@@ -32,4 +32,10 @@
 
 .hero-content p {
     font-size: 1.2em;
+}
+
+.buttons-container {
+    margin-top: -150px;
+    position: relative;
+    z-index: 1;
 }
