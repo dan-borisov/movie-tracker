@@ -29,8 +29,8 @@ function Similar({ id, type }) {
     return (
       <div>
         <div className="container mt-3">
-          { movies.length > 0 && <h2 className='mb-2'>Similar Movies</h2>}
-          
+          { movies.length > 0 && type === 'movie' && <h2 className='mb-2'>Similar Movies</h2>}
+          { movies.length > 0 && type === 'tv' && <h2 className='mb-2'>Similar TV Shows</h2>}
           <div className="row gy-4">
             {movies.map((movie) => {
               const posterPath = movie.poster_path

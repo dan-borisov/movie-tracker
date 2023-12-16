@@ -42,7 +42,7 @@ function ARandomButton() {
 
     return (
         <Link to={`/movie/${movie.id}/${slugify(movie.title)}`} >
-            <button onClick={handleClick} className='btn btn-lg btn-warning'>Random Movie</button>
+            <button onClick={handleClick} className='btn btn-warning'>Random Movie</button>
         </Link>
     )
 };

@@ -51,7 +51,7 @@ function Shows() {
       <div className="container-fluid hero-container">
             <img className="hero-image" src={process.env.PUBLIC_URL + '/movie-tracker-hero.jpg'} alt="Movier Tracker Hero" />
             <div className="hero-content">
-              <h1>TV Shows</h1>
+              <h1>Explore TV Shows</h1>
             </div>
         </div>
         <div className="container buttons-container">

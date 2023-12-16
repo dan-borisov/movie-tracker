@@ -37,18 +37,33 @@ function Header() {
   }, [location.pathname]);
 
     return (
-      <nav class="navbar fixed-top navbar-light" style={{ backgroundColor, transition: 'background-color 0.4s ease' }}>
-        <div class="container">
+          
+     <nav class="navbar fixed-top navbar-expand-md" style={{ backgroundColor, transition: 'background-color 0.4s ease' }}>
+          <div class="container">
           <a class="navbar-brand" href="/">MovieTracker</a>
-          <Link to={'/movies'}>
-            <a href="/">Movies</a>
-          </Link>
-          <Link to='/tv-shows'>
-            <a href="/">TV Shows</a>
-          </Link>
-          { showRandomButton && <ARandomButton /> }
-        </div>
-      </nav>
+            <button class="navbar-toggler custom-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+              <ul class="navbar-nav ms-auto align-items-center">
+                <li class="nav-item p-3">
+                  <Link to={'/movies'}>
+                    <a href="/" className='header-link'>Movies</a>
+                  </Link>
+                </li>
+                <li class="nav-item p-3">
+                  <Link to='/tv-shows'>
+                    <a href="/" className='header-link'>TV Shows</a>
+                  </Link>
+                </li>
+                <li class="nav-item p-3">
+                { showRandomButton && <ARandomButton /> }
+                </li>
+              </ul>
+            </div>
+          </div>
+     </nav>
+     
     );
 }
 

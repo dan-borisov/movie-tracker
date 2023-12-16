@@ -1,49 +1,50 @@
-.hero-container {
+.hero-container-home {
     height: 60vh;
     overflow: hidden;
     padding: 0px;
     position: relative;
 }
 
-.hero-image {
+.hero-image-home {
     height: 100%;
     width: 100%;
     object-fit: cover;
     object-position: 50% 40%;
     filter: blur(4px);
-    -webkit-filter: blur(4px); 
+    -webkit-filter: blur(4px);
     opacity: 0.3;
     -webkit-mask-image: linear-gradient(black, transparent);
-    
+
 }
 
-.hero-content {
+.hero-content-home {
     position: absolute;
-    top: 40%;
+    top: 55%;
     left: 50%;
     transform: translate(-50%, -50%);
     text-align: center;
     color: white;
+    font-size: 1.3rem;
 }
 
+
 @media screen and (min-width: 601px) {
-    .hero-content h1 {
+    .hero-content-home h1 {
       font-size: 4rem;
     }
   }
   
   @media screen and (max-width: 600px) {
-    .hero-content h1 {
+    .hero-content-home h1 {
       font-size: 3rem;
     }
   }
 
-.hero-content p {
-    font-size: 1.2em;
+.homepage-containers {
+    margin-bottom: 100px;;
 }
 
-.buttons-container {
-    margin-top: -150px;
-    position: relative;
-    z-index: 1;
+.homepage-containers h2 {
+    font-size: 2.5rem;
+    margin-bottom: 15px;
 }
