@@ -119,7 +119,7 @@ function HomePage() {
                     
                     return (
                         <div key={show.id} className="col-6 col-md-4 col-lg-2">
-                        <Link to={`/show/${show.id}/${slugify(show.name)}`}>
+                        <Link to={`/tv-show/${show.id}/${slugify(show.name)}`}>
                             <img className="movieCard img-fluid rounded" src={posterPath} alt={show.name} />
                         </Link>
                         </div>
@@ -155,7 +155,7 @@ function HomePage() {
                     
                     return (
                         <div key={show.id} className="col-6 col-md-4 col-lg-2">
-                        <Link to={`/show/${show.id}/${slugify(show.name)}`}>
+                        <Link to={`/tv-show/${show.id}/${slugify(show.name)}`}>
                             <img className="movieCard img-fluid rounded" src={posterPath} alt={show.name} />
                         </Link>
                         </div>

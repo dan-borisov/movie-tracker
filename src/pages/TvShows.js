@@ -70,8 +70,8 @@ function Shows() {
             : process.env.PUBLIC_URL + '/poster-placeholder.png';
             return (
             <div key={show.id} className="col-6 col-md-4 col-lg-2">
-              <Link to={`/tv-show/${show.id}/${slugify(show.original_name)}`}>
-                <img className="movieCard img-fluid rounded" src={posterPath} alt={show.original_name} />
+              <Link to={`/tv-show/${show.id}/${slugify(show.name)}`}>
+                <img className="movieCard img-fluid rounded" src={posterPath} alt={show.name} />
               </Link>
             </div> 
             )}

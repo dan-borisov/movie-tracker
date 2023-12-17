@@ -21,7 +21,7 @@ function SingleMovie() {
         setShow(data);
         console.log(data);
       } catch (error) {
-        console.error('Error fetching movie details', error);
+        console.error('Error fetching movie details', error); 
       }
     };
 
