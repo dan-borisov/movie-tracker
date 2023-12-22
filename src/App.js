@@ -24,7 +24,7 @@ function App() {
           />
           <Route path="/movie/:id/:title" element={<SingleMovie />} />
           <Route path="/tv-show/:id/:title" element={<SingleShow />} />
-          <Route path="/movies" exact element={<Movies />}/>
+          <Route path="/movies" exact element={<Movies />} />
           <Route path="/tv-shows" exact element={<TvShows />}/>
           <Route path="*" element={<NotFound />} />
         </Routes>

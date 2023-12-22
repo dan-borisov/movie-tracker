@@ -8,7 +8,6 @@ function Header() {
   const [backgroundColor, setBackgroundColor] = useState();
   const [showRandomButton, setShowRandomButton] = useState(false);
   const location = useLocation();
-
   
 
   useEffect(() => {
@@ -55,6 +54,8 @@ function Header() {
       document.getElementById('navbarSupportedContent').classList.remove('show');
       setBackgroundColor('');
     }
+
+    
 
     return (
 

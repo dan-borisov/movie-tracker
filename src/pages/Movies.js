@@ -7,18 +7,22 @@ import '../styles/MoviesList.css'
 
 
 function Movies() {
+  
   const [movies, setMovies] = useState([])
-  const [selectedGenreId, setSelectedGenreId ] = useState(null)
+  const [selectedGenreId, setSelectedGenreId ] = useState()
  
-   
+
     useEffect(() => {       
-        const fetchVideos = async () => {
+        const fetchMovies = async () => {
         
         try {
-          let endpoint = `${TMDB_API_BASE_URL}/movie/popular?api_key=${TMDB_API_KEY}&include_adult=false`;
+          
+          let endpoint = '';
   
           if (selectedGenreId) {
             endpoint = `${TMDB_API_BASE_URL}/discover/movie?api_key=${TMDB_API_KEY}&with_genres=${selectedGenreId}&include_adult=false`;
+          } else {
+            endpoint = `${TMDB_API_BASE_URL}/movie/popular?api_key=${TMDB_API_KEY}&include_adult=false`;
           }
   
           const response = await fetch(endpoint);
@@ -28,10 +32,8 @@ function Movies() {
           console.error('Error fetching data from TMDB', error);
         }
       };
-  
-      fetchVideos();
-
-
+      
+      fetchMovies();
 
     }, [selectedGenreId]);
     
@@ -46,7 +48,8 @@ function Movies() {
         return title.toLowerCase().replace(/[^a-zA-Z0-9 ]/g, '').replace(/\s+/g, '-');
     }
 
-
+  
+    
   return (
     <div>
       <div className="container-fluid hero-container">
